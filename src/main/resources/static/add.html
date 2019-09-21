@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="webjars/jquery/3.0.0/jquery.js" th:src="@{/webjars/jquery/3.0.0/jquery.js}"></script>
+</head>
+<style>
+
+</style>
+<body>
+<div class="container" >
+    <form action="/user/add" method="post"  style="margin-top: 100px">
+        <h1>添加用户</h1>
+        <table class="table table-striped">
+            <tr><td style="width: 10%">用户名：</td><td><input name="username" type="text" required></td></tr>
+            <tr><td>真实姓名：</td><td><input name="realname" type="text" required></td></tr>
+            <tr><td>密码：</td><td><input name="password" type="password" required></td></tr>
+            <tr><td>邮箱：</td><td><input name="email" type="text" required></td></tr>
+            <tr><td>手机号</td><td><input name="phone" type="text" required></td></tr>
+            <tr><td><button class="btn btn-success">确认</button></td></tr>
+        </table>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.3.1/css/bootstrap.min.css}" type="text/css" rel="stylesheet">
+    <script type="text/javascript" src="webjars/jquery/3.0.0/jquery.js" th:src="@{/webjars/jquery/3.0.0/jquery.js}"></script>
+    <style>
+
+        .t1{
+            margin-top:20px;
+            margin-left:250px;
+            width: 1000px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="t1">
+    <h1>用户管理</h1>
+    <button class="btn btn-success" onclick="add()">添加用户</button>
+    <hr>
+    <table class="table">
+        <tr>
+            <th>编号</th>
+            <th>用户名</th>
+            <th>真实姓名</th>
+            <th>手机号</th>
+            <th>邮箱</th>
+            <th>身份</th>
+            <th>操作</th>
+        </tr>
+        <tr th:each="user:${users}">
+        <td>[[${userStat.count}]]</td>
+        <td>[[${user.username}]]</td>
+        <td>[[${user.realname}]]</td>
+        <td>[[${user.phone}]]</td>
+        <td>[[${user.email}]]</td>
+        <td>[[${user.role}]]</td>
+        <td>
+            <button class="btn btn-success" onclick="update(this)" th:data="${user.id}">修改</button>
+            <button class="btn btn-danger" onclick="del(this)" th:data="${user.id}">删除</button>
+        </td>
+        </tr>
+    </table>
+
+</div>
+</body>
+<script>
+    function del(obj) {
+        location.href="delete?id="+$(obj).attr("data");
+    }
+    function update(obj) {
+        location.href="toupdate?id="+$(obj).attr("data");
+    }
+    function add() {
+        location.href="../add.html";
+    }
+</script>
+</html>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.demo.manageruser.dao.UserDao">
+    <select id="getList" resultType="user">
+            select * from user where isdel = 0;
+    </select>
+    <update id="del">
+        update user set isdel = 1 where id = #{id};
+    </update>
+    <select id="getUser" resultType="user">
+        select * from user where id =#{id}
+    </select>
+    <update id="update" >
+        update user set realname = #{realname},password = #{password} where id = #{id}
+    </update>
+    <insert id="addUser">
+        insert into user values(null,#{username},#{password},#{realname},#{phone},#{email},0,0)
+    </insert>
+
+    <!-- 通用查询映射结果 -->
+<!--    <resultMap id="BaseResultMap" type="cn.shoe.entity.User">-->
+<!--        <id column="id" property="id" />-->
+<!--        <result column="userName" property="userName" />-->
+<!--        <result column="password" property="password" />-->
+<!--        <result column="img" property="img" />-->
+<!--        <result column="phone" property="phone" />-->
+<!--        <result column="sex" property="sex" />-->
+<!--        <result column="birthday" property="birthday" />-->
+<!--        <result column="age" property="age" />-->
+<!--        <result column="role" property="role" />-->
+<!--        <result column="isdel" property="isdel" />-->
+<!--    </resultMap>-->
+
+<!--    &lt;!&ndash; 通用查询结果列 &ndash;&gt;-->
+<!--    <sql id="Base_Column_List">-->
+<!--        id, userName, password, img, phone, sex, birthday, age, role, isdel-->
+<!--    </sql>-->
+
+</mapper>
